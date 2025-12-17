@@ -75,18 +75,28 @@ def store_deviation(data):
     conn.commit()
     conn.close()
 
+def has_demo_data():
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(*) FROM production_history")
+    count = cur.fetchone()[0]
+    conn.close()
+    return count > 0
+
+
 def insert_demo_data():
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("""
+    cur.executemany("""
         INSERT INTO production_history
         (machine_id, paper_type, run_size_class, max_speed)
-        VALUES
-        ('RO-01', 'SC-B 60g', '10k–50k', 46000),
-        ('RO-01', 'LWC 70g', '10k–50k', 44000),
-        ('RO-02', 'SC-B 60g', '10k–50k', 48000)
-    """)
+        VALUES (?, ?, ?, ?)
+    """, [
+        ("RO-01", "SC-B 60g", "10k–50k", 46000),
+        ("RO-01", "LWC 70g", "10k–50k", 44000),
+        ("RO-02", "SC-B 60g", "10k–50k", 48000),
+    ])
 
     conn.commit()
     conn.close()
