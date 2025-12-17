@@ -74,3 +74,19 @@ def store_deviation(data):
 
     conn.commit()
     conn.close()
+
+def insert_demo_data():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        INSERT INTO production_history
+        (machine_id, paper_type, run_size_class, max_speed)
+        VALUES
+        ('RO-01', 'SC-B 60g', '10k–50k', 46000),
+        ('RO-01', 'LWC 70g', '10k–50k', 44000),
+        ('RO-02', 'SC-B 60g', '10k–50k', 48000)
+    """)
+
+    conn.commit()
+    conn.close()
