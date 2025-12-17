@@ -93,10 +93,12 @@ def insert_demo_data():
         (machine_id, paper_type, run_size_class, max_speed)
         VALUES (?, ?, ?, ?)
     """, [
-        ("RO-01", "SC-B 60g", "10k–50k", 46000),
-        ("RO-01", "LWC 70g", "10k–50k", 44000),
-        ("RO-02", "SC-B 60g", "10k–50k", 48000),
+        ("RO-01", "SC-B 60g", "10k-50k", 46000),
+        ("RO-01", "LWC 70g", "10k-50k", 44000),
+        ("RO-02", "SC-B 60g", "10k-50k", 48000),
+
     ])
 
     conn.commit()
     conn.close()
+
