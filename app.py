@@ -74,6 +74,3 @@ if status == "RED":
                 "comment": comment
             })
             st.success("Deviation saved successfully.")
-
-from database import insert_demo_data
-insert_demo_data()
