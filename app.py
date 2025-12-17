@@ -1,4 +1,4 @@
-from database import init_db, insert_demo_data, has_demo_data
+
 
 
 import streamlit as st
@@ -78,6 +78,6 @@ if status == "RED":
             })
             st.success("Deviation saved successfully.")
 
-from database import insert_demo_data
-insert_demo_data()
+
+
 
