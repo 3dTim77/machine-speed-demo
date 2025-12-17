@@ -7,6 +7,13 @@ from database import init_db, get_reference_speed, store_deviation
 
 init_db()
 
+if not has_demo_data():
+    st.info("No demo data found. Click below to insert demo data.")
+    if st.button("Insert demo data"):
+        insert_demo_data()
+        st.success("Demo data inserted. Please reload the app.")
+        st.stop()
+
 st.set_page_config(page_title="Machine Speed Monitor", layout="centered")
 
 st.title("🖨️ Machine Speed Monitor (Demo)")
@@ -78,6 +85,7 @@ if status == "RED":
                 "comment": comment
             })
             st.success("Deviation saved successfully.")
+
 
 
 
