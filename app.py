@@ -21,7 +21,12 @@ st.title("🖨️ Machine Speed Monitor (Demo)")
 # --- Input ---
 machine_id = st.selectbox("Machine", ["RO-01", "RO-02"])
 paper_type = st.selectbox("Paper type", ["SC-B 60g", "LWC 70g"])
-run_size = st.selectbox("Run size", ["0–10k", "10k–50k", ">50k"])
+
+run_size = st.selectbox(
+    "Run size",
+    ["0-10k", "10k-50k", ">50k"]
+)
+
 current_speed = st.number_input("Current speed (copies/hour)", min_value=0)
 
 # --- Reference ---
@@ -85,6 +90,7 @@ if status == "RED":
                 "comment": comment
             })
             st.success("Deviation saved successfully.")
+
 
 
 
