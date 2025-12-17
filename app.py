@@ -1,3 +1,6 @@
+from database import init_db, insert_demo_data, has_demo_data
+
+
 import streamlit as st
 from database import init_db, get_reference_speed, store_deviation
 
@@ -77,3 +80,4 @@ if status == "RED":
 
 from database import insert_demo_data
 insert_demo_data()
+
